@@ -2,6 +2,12 @@ package org.serratec.backend.ProjetoFinal.domain;
 
 import java.time.LocalDate;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.br.CPF;
+
 import java.util.Objects;
 
 
@@ -12,6 +18,7 @@ public class Cliente {
 	
 	@Column(length = 50)
 	@ApiModelProperty(value = "nome do cliente")
+	@NotBlank(message = "Não pode ser vazio")
 	private String nome;
 	
 	@Id
@@ -21,15 +28,20 @@ public class Cliente {
 	
 	@Column
 	@ApiModelProperty(value = "cpf do cliente", required = true)
+	@CPF(message = "Verifique o campo de Cpf")
 	private String cpf;
 	
 	@Column
 	@ApiModelProperty(value = "email do cliente", required = true)
+	@Email(message = "Verifique o campo de email")
+	//TODO: verificar email
 	private String email;
 	
 	@Column
 	@ApiModelProperty(value = "nascimento do cliente")
 	private LocalDate dataNascimento;
+	
+	private Endereco endereco;
 	
 	
 

@@ -1,5 +1,6 @@
-package org.serratec.backend.ProjetoFinal.domain;
+package org.serratec.backend.ProjetoFinal.Repositoryes;
 
+import org.serratec.backend.ProjetoFinal.domain.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

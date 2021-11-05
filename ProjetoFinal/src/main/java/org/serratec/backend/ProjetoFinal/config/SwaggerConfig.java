@@ -1,4 +1,4 @@
-package org.serratec.backend.ProjetoFinal;
+package org.serratec.backend.ProjetoFinal.config;
 
 
 import org.springframework.context.annotation.Bean;

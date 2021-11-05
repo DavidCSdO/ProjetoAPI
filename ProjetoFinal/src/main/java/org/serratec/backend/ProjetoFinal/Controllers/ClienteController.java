@@ -1,4 +1,4 @@
-package org.serratec.backend.ProjetoFinal.domain;
+package org.serratec.backend.ProjetoFinal.Controllers;
 
 	
 	import java.util.List;
@@ -6,7 +6,8 @@ package org.serratec.backend.ProjetoFinal.domain;
 
 	import javax.management.loading.ClassLoaderRepository;
 
-
+import org.serratec.backend.ProjetoFinal.Repositoryes.ClienteRepository;
+import org.serratec.backend.ProjetoFinal.domain.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

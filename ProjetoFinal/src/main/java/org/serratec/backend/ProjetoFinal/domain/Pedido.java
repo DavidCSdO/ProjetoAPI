@@ -1,6 +1,9 @@
 package org.serratec.backend.ProjetoFinal.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,36 +18,20 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
-	private LocalDate dataCompra;
+	private LocalDateTime dataPedido;
 	
-	@Column
-	private LocalDate dataVenda;
-	
-	
-	public Pedido(Long id, LocalDate dataCompra, LocalDate dataVenda) {
+	private long quantidade;
 
-		this.id = id;
-		this.dataCompra = dataCompra;
-		this.dataVenda = dataVenda;
-	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public LocalDate getDataCompra() {
-		return dataCompra;
-	}
-	public void setDataCompra(LocalDate dataCompra) {
-		this.dataCompra = dataCompra;
-	}
-	public LocalDate getDataVenda() {
-		return dataVenda;
-	}
-	public void setDataVenda(LocalDate dataVenda) {
-		this.dataVenda = dataVenda;
-	}
+	private LocalDateTime dataEnvio;
+	
+	private LocalDateTime dataEntrega;
+	
+	private List<Produto> produtos;
+	
+	private BigDecimal valorFinal;
+	
+	private Cliente cliente;
+	
+	
 }
 
