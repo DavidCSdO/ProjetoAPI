@@ -6,26 +6,86 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	@Column(name = "id_produto")
+	private long idProduto;
 	
+	@NotBlank()
+    @Size(max = 80, min = 5, message = "Nome deve conter entre {min} e {max} caracteres.")
+    @Column(length = 80, nullable = false)
+	private String nomeProduto;
 	
+	@NotBlank()
+    @Size(max = 100, min = 4, message = "Nome deve conter entre {min} e {max} caracteres.")
+    @Column(length = 100, nullable = false)
+	private String descricaoProduto;
 	
-	@Column
-	private String nome;
-	@Column
-	private String descricao;
-	@Column(name = "Valor unitario")
+	@NotBlank()
+	@Column(length = 50, nullable = false, name = "Valor unitario")
 	private BigDecimal valorUnitario;
 	
-	
 	private Categoria categoria;
-	
-	
 
+	public Produto() {
+		super();
+	}
+
+	public Produto(long idProduto,
+			@NotBlank @Size(max = 80, min = 5, message = "Nome deve conter entre {min} e {max} caracteres.") String nomeProduto,
+			@NotBlank @Size(max = 100, min = 4, message = "Nome deve conter entre {min} e {max} caracteres.") String descricaoProduto,
+			@NotBlank BigDecimal valorUnitario, Categoria categoria) {
+		super();
+		this.idProduto = idProduto;
+		this.nomeProduto = nomeProduto;
+		this.descricaoProduto = descricaoProduto;
+		this.valorUnitario = valorUnitario;
+		this.categoria = categoria;
+	}
+
+	public long getIdProduto() {
+		return idProduto;
+	}
+	public void setIdProduto(long idProduto) {
+		this.idProduto = idProduto;
+	}
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
+	}
+	public String getDescricaoProduto() {
+		return descricaoProduto;
+	}
+	public void setDescricaoProduto(String descricaoProduto) {
+		this.descricaoProduto = descricaoProduto;
+	}
+	public BigDecimal getValorUnitario() {
+		return valorUnitario;
+	}
+	public void setValorUnitario(BigDecimal valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	@Override
+	public String toString() {
+		return "Id do Produto: " + idProduto 
+				+ "\nProduto: " + nomeProduto 
+				+ "\nDescrição: "	+ descricaoProduto 
+				+ "\nValor Unitario: " + valorUnitario 
+				+ "\nCategoria: " + categoria;
+	}
 }
