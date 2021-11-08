@@ -1,5 +1,6 @@
 package org.serratec.backend.ProjetoFinal.domain;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -87,5 +88,24 @@ public class Produto {
 				+ "\nDescrição: "	+ descricaoProduto 
 				+ "\nValor Unitario: " + valorUnitario 
 				+ "\nCategoria: " + categoria;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(categoria, descricaoProduto, idProduto, nomeProduto, valorUnitario);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		return Objects.equals(categoria, other.categoria) && Objects.equals(descricaoProduto, other.descricaoProduto)
+				&& idProduto == other.idProduto && Objects.equals(nomeProduto, other.nomeProduto)
+				&& Objects.equals(valorUnitario, other.valorUnitario);
 	}
 }
