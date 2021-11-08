@@ -6,8 +6,8 @@ package org.serratec.backend.ProjetoFinal.Controllers;
 
 	import javax.management.loading.ClassLoaderRepository;
 
-import org.serratec.backend.ProjetoFinal.Repositoryes.ClienteRepository;
 import org.serratec.backend.ProjetoFinal.domain.Cliente;
+import org.serratec.backend.ProjetoFinal.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
