@@ -2,7 +2,6 @@ package org.serratec.backend.ProjetoFinal.services;
 
 import org.serratec.backend.ProjetoFinal.domain.Produto;
 import org.serratec.backend.ProjetoFinal.repositories.ProdutoRepository;
-import org.serratec.backend.ProjetoFinal.domain.Categoria;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class ProdutoService {
     }
 	
 	@Transactional
-    public Produto atualizarPessoa(Long idDoProdutoASerAtualizado, Produto produtoComOsNovosDados) {
+    public Produto atualizarProduto(Long idDoProdutoASerAtualizado, Produto produtoComOsNovosDados) {
 		Produto produtoQueEstaNoBanco = repository.findById(idDoProdutoASerAtualizado).get();
         if (produtoComOsNovosDados.getNomeProduto() != null) {
         	produtoQueEstaNoBanco.setNomeProduto(produtoComOsNovosDados.getNomeProduto());
