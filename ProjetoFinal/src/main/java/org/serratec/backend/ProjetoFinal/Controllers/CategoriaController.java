@@ -2,8 +2,8 @@ package org.serratec.backend.ProjetoFinal.Controllers;
 
 import javax.validation.Valid;
 
-import org.serratec.backend.ProjetoFinal.Repositoryes.CategoriaRepository;
 import org.serratec.backend.ProjetoFinal.domain.Categoria;
+import org.serratec.backend.ProjetoFinal.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
