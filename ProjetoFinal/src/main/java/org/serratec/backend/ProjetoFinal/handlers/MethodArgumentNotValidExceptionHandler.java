@@ -1,12 +1,14 @@
 package org.serratec.backend.ProjetoFinal.handlers;
 
-import org.serratec.backend.ProjetoFinal.domain.ErroResposta;
+import org.serratec.backend.ProjetoFinal.exeption.ErroResposta;
+import org.serratec.backend.ProjetoFinal.exeption.EmailException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -31,4 +33,8 @@ public class MethodArgumentNotValidExceptionHandler extends ResponseEntityExcept
 
         return super.handleExceptionInternal(ex, corpoDaRespostaDoErro, headers, status, request);
     }
+    @ExceptionHandler(EmailException.class)	
+	protected ResponseEntity<Object> handleEmailExecption(EmailException ex){				
+		return ResponseEntity.unprocessableEntity().body(ex.getMessage());		
+	}
 }

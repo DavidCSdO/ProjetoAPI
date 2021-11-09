@@ -1,4 +1,4 @@
-package org.serratec.backend.ProjetoFinal.domain;
+package org.serratec.backend.ProjetoFinal.exeption;
 
 import java.util.List;
 
