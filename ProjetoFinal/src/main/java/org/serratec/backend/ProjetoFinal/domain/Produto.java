@@ -38,10 +38,7 @@ public class Produto {
 		super();
 	}
 
-	public Produto(long idProduto,
-			@NotBlank @Size(max = 80, min = 5, message = "Nome deve conter entre {min} e {max} caracteres.") String nomeProduto,
-			@NotBlank @Size(max = 100, min = 4, message = "Nome deve conter entre {min} e {max} caracteres.") String descricaoProduto,
-			@NotBlank BigDecimal valorUnitario, Categoria categoria) {
+	public Produto(long idProduto, String nomeProduto, String descricaoProduto, BigDecimal valorUnitario, Categoria categoria) {
 		super();
 		this.idProduto = idProduto;
 		this.nomeProduto = nomeProduto;
