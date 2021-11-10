@@ -19,7 +19,10 @@ public class ClienteService {
 	@Autowired
 	private MailConfig mailConf;
 	
-	public void inserirCliente(Cliente clienteQueVemDoController) throws EmailException{
+	@Autowired
+	private CriptografiaService criptografiaService;
+	
+	public Cliente inserirCliente(Cliente clienteQueVemDoController) throws EmailException{
 		Cliente cliente = clienteRepository.findByEmail(clienteQueVemDoController.getEmail());
 		if(cliente != null) {
 			throw new EmailException("Cliente com este e-mail já existe no cadastro.");			
