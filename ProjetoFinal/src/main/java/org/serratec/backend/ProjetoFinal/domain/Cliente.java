@@ -41,6 +41,12 @@ public class Cliente {
 	@ApiModelProperty(value = "nascimento do cliente")
 	private LocalDate dataNascimento;
 	
+	@Column
+	@ApiModelProperty(value = "senha do cliente", required = true)
+	@NotBlank(message = "Não pode ser vazio ou nulo")
+	private String senha;
+	
+	
 	private Endereco endereco;
 	
 	
@@ -75,6 +81,13 @@ public class Cliente {
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cpf, dataNascimento, email, id);
